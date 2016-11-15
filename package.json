@@ -8,19 +8,21 @@
     "copy": "copyfiles -f ./src/index.html ./src/favicon.ico ./dist",
     "dist": "npm run copy & webpack --env=dist",
     "lint": "eslint ./src",
+    "postinstall": "webpack -p",
     "posttest": "npm run lint",
     "release:major": "npm version major && npm publish && git push --follow-tags",
     "release:minor": "npm version minor && npm publish && git push --follow-tags",
     "release:patch": "npm version patch && npm publish && git push --follow-tags",
     "serve": "node server.js --env=dev",
     "serve:dist": "node server.js --env=dist",
-    "start": "node server.js --env=dev",
+    "start": "node server.js",
+    "start:dev": "webpack-dev-server",
     "test": "karma start",
     "test:watch": "karma start --autoWatch=true --singleRun=false"
   },
-  "repository": "",
+  "repository": "https://github.com/richardxu100/yo-react-app",
   "keywords": [],
-  "author": "Your name here",
+  "author": "Richard Xu",
   "devDependencies": {
     "babel-core": "^6.0.0",
     "babel-eslint": "^6.0.0",
@@ -61,9 +63,13 @@
     "webpack-dev-server": "^1.12.0"
   },
   "dependencies": {
+    "classnames": "^2.2.5",
     "core-js": "^2.0.0",
+    "express": "^4.14.0",
+    "morgan": "^1.7.0",
     "normalize.css": "^4.0.0",
     "react": "^15.0.0",
-    "react-dom": "^15.0.0"
+    "react-dom": "^15.0.0",
+    "react-router": "^3.0.0"
   }
 }
